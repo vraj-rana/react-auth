@@ -1,0 +1,29 @@
+.otp-dial {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  padding: 8px 0 4px;
+}
+
+.otp-dial__notch {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--brass-strong);
+  background: var(--base);
+  caret-color: var(--brass);
+}
+
+.otp-dial__notch:disabled {
+  color: var(--ink-faint);
+}
+
+.otp-dial__notch:focus {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}

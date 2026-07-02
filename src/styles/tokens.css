@@ -1,0 +1,102 @@
+:root {
+  /* ---------- Palette ---------- */
+  --base: #e4e8ef;              /* steel-grey neumorphic base */
+  --base-raised: #e9edf3;
+  --ink: #262b38;               /* primary text — deep graphite */
+  --ink-soft: #626a7d;          /* secondary text */
+  --ink-faint: #939bab;
+  --brass: #a9772f;             /* vault brass — primary accent */
+  --brass-strong: #8a5e22;
+  --brass-tint: #d9b978;
+  --vault-green: #3f7d63;       /* status: success / clearance granted */
+  --vault-green-tint: #dbe9e2;
+  --vault-red: #a8453b;         /* status: error / denied */
+  --vault-red-tint: #f0dcda;
+
+  /* ---------- Shadows (neumorphic) ---------- */
+  --shadow-light: #ffffff;
+  --shadow-dark: #aab2c4;
+  --shadow-dark-strong: #9aa2b8;
+
+  /* ---------- Type ---------- */
+  --font-display: 'Familjen Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* ---------- Radii ---------- */
+  --r-lg: 28px;
+  --r-md: 18px;
+  --r-sm: 12px;
+  --r-pill: 999px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--base);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ---------- Neumorphic surfaces ---------- */
+
+.neu-raised {
+  background: var(--base);
+  border-radius: var(--r-md);
+  box-shadow:
+    8px 8px 16px var(--shadow-dark),
+    -8px -8px 16px var(--shadow-light);
+}
+
+.neu-inset {
+  background: var(--base);
+  border-radius: var(--r-md);
+  box-shadow:
+    inset 5px 5px 10px var(--shadow-dark),
+    inset -5px -5px 10px var(--shadow-light);
+}
+
+.neu-flat {
+  background: var(--base);
+  border-radius: var(--r-md);
+  box-shadow:
+    3px 3px 6px var(--shadow-dark),
+    -3px -3px 6px var(--shadow-light);
+}
+
+.neu-pressable {
+  transition: box-shadow 120ms ease, transform 120ms ease;
+  cursor: pointer;
+}
+
+.neu-pressable:active {
+  box-shadow:
+    inset 4px 4px 8px var(--shadow-dark),
+    inset -4px -4px 8px var(--shadow-light);
+  transform: translateY(1px);
+}
+
+/* focus ring, kept visible for keyboard users despite the soft-shadow language */
+:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
