@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import AuthShell from '../components/AuthShell';
 import NeuField from '../components/NeuField';
@@ -11,7 +11,6 @@ const ChangePassword = () => {
   const [form, setForm] = useState({ oldPassword: '', newPassword: '' });
   const [done, setDone] = useState(false);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { role, status, authError } = useSelector((s) => s.auth);
   const isPending = status === 'pending';
 
@@ -42,7 +41,7 @@ const ChangePassword = () => {
         <NeuField label="New password" type="password" name="newPassword" value={form.newPassword} onChange={handleChange} required autoComplete="new-password" />
         <StatusBanner tone="error">{authError}</StatusBanner>
         <NeuButton type="submit" disabled={isPending}>
-          {isPending ? 'Updating…' : 'Update password'}
+          {isPending ? 'Updating...' : 'Update password'}
         </NeuButton>
       </form>
     </AuthShell>
